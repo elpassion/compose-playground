@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Compose Playground</string>
+    <string name="train_hard">Train hard</string>
 </resources>
