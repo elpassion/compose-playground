@@ -10,11 +10,17 @@ import androidx.ui.core.clip
 import androidx.ui.core.setContent
 import androidx.ui.foundation.Image
 import androidx.ui.foundation.Text
+import androidx.ui.foundation.drawBackground
+import androidx.ui.graphics.Color
+import androidx.ui.graphics.ColorFilter
+import androidx.ui.graphics.toArgb
 import androidx.ui.layout.*
 import androidx.ui.layout.ColumnScope.weight
 import androidx.ui.material.Button
 import androidx.ui.material.Divider
 import androidx.ui.material.MaterialTheme
+import androidx.ui.material.MaterialTheme.colors
+import androidx.ui.res.colorResource
 import androidx.ui.res.imageResource
 import androidx.ui.res.stringResource
 import androidx.ui.tooling.preview.Preview
@@ -55,12 +61,6 @@ fun KotlinGym() {
     }
 }
 
-data class Training(
-    val title: String,
-    val time: ZonedDateTime
-) {
-    var counter by mutableStateOf(0)
-}
 
 @Composable
 private fun TrainingContent(
@@ -75,11 +75,12 @@ private fun TrainingContent(
         modifier = Modifier
             .fillMaxWidth()
             .wrapContentHeight()
-            .padding(16.dp,16.dp, 16.dp, 0.dp)
+            .padding(16.dp, 16.dp, 16.dp, 0.dp)
     ) {
         Text(
             stringResource(id = R.string.train_hard),
-            style = typography.h2
+            style = typography.h2,
+            color = MaterialTheme.colors.onPrimary
         )
         val imageModifier = Modifier
             .preferredSizeIn()
