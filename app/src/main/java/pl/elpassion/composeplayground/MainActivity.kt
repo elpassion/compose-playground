@@ -1,6 +1,7 @@
 package pl.elpassion.composeplayground
 
 import android.os.Bundle
+import android.widget.LinearLayout
 import androidx.appcompat.app.AppCompatActivity
 import androidx.compose.*
 import androidx.ui.core.ContentScale
@@ -10,6 +11,7 @@ import androidx.ui.core.setContent
 import androidx.ui.foundation.Image
 import androidx.ui.foundation.Text
 import androidx.ui.layout.*
+import androidx.ui.layout.ColumnScope.weight
 import androidx.ui.material.Button
 import androidx.ui.material.Divider
 import androidx.ui.material.MaterialTheme
@@ -65,11 +67,15 @@ private fun TrainingContent(
     training: Training,
     onClick: () -> Unit
 ) {
+
     val imageAsset = imageResource(id = R.drawable.woman_in_gym)
     val formattedDate = DateTimeFormatter.ofLocalizedDate(FormatStyle.LONG)
         .format(training.time)
     Column(
-        modifier = Modifier.padding(16.dp)
+        modifier = Modifier
+            .fillMaxWidth()
+            .wrapContentHeight()
+            .padding(16.dp,16.dp, 16.dp, 0.dp)
     ) {
         Text(
             stringResource(id = R.string.train_hard),
