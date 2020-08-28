@@ -84,7 +84,7 @@ private fun TrainingContent(
         )
         val imageModifier = Modifier
             .preferredSizeIn()
-            .preferredHeightIn(maxHeight = 120.dp)
+            .heightIn(maxHeight = 120.dp)
             .fillMaxWidth()
             .clip(shape = shapes.small)
         Image(
